@@ -12,21 +12,20 @@
   <body>
     <div id="bgcurtain"></div>
     <div id="menu">
-      <h2>Enter a word or let the computer choose</h2>
-      <label id="label-input">
-        <input type="text" placeholder="Enter a word">
-        <button>Start</button>
-    </label>
-      <button id="computerBtn">Computer</button>
+      <h2>Enter a word for your opponent to guess!</h2>
+        <label id="label-input">
+          <input type="text" placeholder="Enter a word" required id="input-word">
+          <button id="inputWordBtn">Start</button>
+        </label>
     </div>
     <div class="figure" id="figure">
-      <div class="head" data-part="6"></div>
-      <div class="torso" data-part="5"></div>
-      <div class="leftarm" data-part="4"></div>
-      <div class="rightarm" data-part="3"></div>
-      <div class="leftleg" data-part="2"></div>
-      <div class="rightleg" data-part="1"></div>
       <div class="rope"></div>
+      <div class="head"></div>
+      <div class="torso"></div>
+      <div class="leftarm"></div>
+      <div class="rightarm"></div>
+      <div class="leftleg"></div>
+      <div class="rightleg"></div>
     </div>
     <ul class="guessingdisplay" id="guessWord">
     </ul>
