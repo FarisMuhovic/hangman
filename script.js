@@ -32,19 +32,17 @@ const keyboardDiv = document.getElementById("keyboard");
 alphabet.forEach(letter => {
   keyboardDiv.innerHTML += `<div data-key=${letter.toLowerCase()}>${letter}</div>`;
 });
-
 const guessingDisplay = document.getElementById("guessWord");
-word = "hippopotammus";
+word = "faris";
 let wordArray = [];
 for (let i = 0; i < word.length; i++) {
   wordArray.push(word[i]);
   guessingDisplay.innerHTML += `<p data-place=${i}></p>`;
 }
-
 const keys = document.querySelectorAll("#keyboard div");
+const figure = document.querySelector("#figure");
 keys.forEach(key => {
   key.addEventListener("click", () => {
-    console.log(key.getAttribute("data-key"));
     let dataKey = key.getAttribute("data-key");
     wordArray.forEach(letter => {
       if (letter == dataKey) {
@@ -64,7 +62,11 @@ keys.forEach(key => {
             }
           });
         });
-      }
+      } //else {
+      //figure.removeChild(figure.lastChild);
+      // key.ariaDisabled;
+      // key.style.backgroundColor = "red";
+      //}
     });
   });
 });
