@@ -48,7 +48,7 @@ inputBtn.addEventListener("click", () => {
 const keys = document.querySelectorAll("#keyboard div");
 const figure = document.querySelector("#figure");
 let fails = 0;
-//let guessStr = String();
+let correctGuesses = 0;
 keys.forEach(key => {
   key.addEventListener("click", function QuandaleDingle() {
     let dataKey = key.getAttribute("data-key");
@@ -81,6 +81,10 @@ keys.forEach(key => {
             indexes.push(index);
           }
         }
+        correctGuesses++;
+        console.log(correctGuesses);
+        key.removeEventListener("click", QuandaleDingle);
+        key.style.backgroundColor = "#1a95a8";
         let guessingDisplayPara = document.querySelectorAll("#guessWord p");
         guessingDisplayPara.forEach(guess => {
           indexes.forEach(index => {
@@ -88,24 +92,20 @@ keys.forEach(key => {
               document.querySelector(
                 `[data-place=${CSS.escape(index)}]`
               ).innerHTML = letter;
-              //  console.log(letter);
-              //guessStr += letter;
             }
           });
         });
       }
     });
-    //if (word == guessStr) {
-    //      alert(
-    //        "You won! The word was " + word + " You made " + fails + " mistakes"
-    //     );
-    //     if (confirm) {
-    //       location.reload();
-    //     } else {
-    //       location.reload();
-    //     }
-    //    }
+    setTimeout(() => {
+      if (correctGuesses == word.length) {
+        alert("You guessed it!");
+        if (confirm) {
+          location.reload();
+        } else {
+          location.reload();
+        }
+      }
+    }, 500);
   });
 });
-// if correct guesses = word lenght you won !
-//
